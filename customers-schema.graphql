@@ -42,7 +42,7 @@ type User @key(fields: "id") {
 
   paymentMethods: [PaymentMethod]
 
-  nope: String
+  nope: String!
 }
 
 """

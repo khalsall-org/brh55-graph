@@ -41,8 +41,6 @@ type User @key(fields: "id") {
   orders(filters: OrderFilters): [Order]
 
   paymentMethods: [PaymentMethod]
-
-  nope: String!
 }
 
 """

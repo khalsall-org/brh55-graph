@@ -28,5 +28,32 @@ subscription:
         products:
          path: /
 
+# This would make debugging easier, but should be a per subgraph basis for production
+include_subgraph_errors:
+  all: true # Propagate errors from all subgraphs
+
+telemetry:
+  apollo:
+    # In this example, the trace sampler is configured  
+    # with a 50% probability of sampling a request.
+    # This value can't exceed the value of tracing.common.sampler.
+    field_level_instrumentation_sampler: 0.5
+    experimental_local_field_metrics: true
+    experimental_apollo_metrics_reference_mode: extended
+    # OTLP
+    experimental_otlp_tracing_sampler: always_on
+    errors:
+      subgraph:
+        all:
+          # By default, subgraphs should report errors to GraphOS
+          send: true # (default: true)
+          redact: false # (default: true)
+
+  exporters:
+    tracing:
+      common:
+        # FTV1 uses the same trace sampling as other tracing options,
+        # so this value is also required.
+        sampler: 0.5
 ## Enter Workshop Module Configs Below
 

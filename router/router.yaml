@@ -37,7 +37,7 @@ telemetry:
     # In this example, the trace sampler is configured  
     # with a 50% probability of sampling a request.
     # This value can't exceed the value of tracing.common.sampler.
-    field_level_instrumentation_sampler: 0.5
+    field_level_instrumentation_sampler: 0.9
     experimental_local_field_metrics: true
     experimental_apollo_metrics_reference_mode: extended
     # OTLP
@@ -54,6 +54,6 @@ telemetry:
       common:
         # FTV1 uses the same trace sampling as other tracing options,
         # so this value is also required.
-        sampler: 0.5
+        sampler: 0.9
 ## Enter Workshop Module Configs Below
 
